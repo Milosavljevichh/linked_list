@@ -32,9 +32,9 @@ function LinkedList() {
             let n = 0;
             let counter = this.head;
             while (counter != null) {
-                if (counter.value) {
+                // if (counter.value) {
                     n++;
-                };
+                // };
                 counter = counter.nextNode;
             }
             return n;
@@ -52,16 +52,21 @@ function LinkedList() {
         atIndex: function(index) {
             let node = this.head
             for (let i = 0; i<index;i++){
-                if (i === index-1) {
-                    node.value;
-                } else{
                     node = node.nextNode
-                }
+                
             }
             return node;
         },
         pop: function() {
             let node = this.head;
+            //if list is empty, do nothing
+            if (node === null) return;
+            //if list has only one node (head), pop it
+            if (node.nextNode === null) {
+                this.head = null
+                return
+            };
+            //else if list has more than 1 node (head), pop the last node
             while (node.nextNode.nextNode != null) {
                 node = node.nextNode;
             }
@@ -129,15 +134,21 @@ function LinkedList() {
 // list.prepend(node3.value)
 // let node4 = Node(4)
 // list.append(node4.value)
-// list.append(node1.value)
-// list.append(node2.value)
-// list.append(node3.value)
+// // list.append(node1.value)
+// // list.append(node2.value)
+// // list.append(node3.value)
+// console.log(list.toString())
+// list.pop()
+// console.log(list.toString())
 
 // console.log(list)
 // console.log(list.size())
 // console.log(list.listHead())
 // console.log(list.tail())
-// console.log(list.atIndex(6))
+// console.log('---------------------')
+// console.log(list.toString())
+// console.log(list.atIndex(7))
+// console.log('---------------------')
 // list.pop()
 // console.log(list.tail()) 
 // console.log(list.contains(2)) 
@@ -145,3 +156,4 @@ function LinkedList() {
 // console.log(list.toString()) 
 // list.insertAt('joker', 2)
 // console.log(list.toString())
+
