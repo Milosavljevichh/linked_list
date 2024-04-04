@@ -101,6 +101,20 @@ function LinkedList() {
             }
             str += `null`;
             return str;
+        },
+        insertAt: function(value, index) {
+            if (index === 0 ) {
+                list.prepend(value);
+            } else {
+                let node = this.head;
+                let temp = node.nextNode;
+                for (let i=0; i<index-1; i++){
+                    temp = node.nextNode.nextNode
+                    node = node.nextNode
+                }
+                const newNode = Node(value, temp);
+                node.nextNode = newNode;
+            }
         }
 
 }};
@@ -129,3 +143,5 @@ console.log(list.tail())
 console.log(list.contains(2)) 
 console.log(list.find(4)) 
 console.log(list.toString()) 
+list.insertAt('joker', 2)
+console.log(list.toString())
